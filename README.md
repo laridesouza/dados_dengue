@@ -43,3 +43,9 @@ A tabela tem chave primária composta por **cidade + semana epidemiológica**, e
  
 O Compose garante a ordem: o processor só começa quando o MySQL está saudável (`healthcheck`) e o extractor terminou com sucesso. O extractor e o processor rodam uma vez e terminam, e por isso aparecem como `Exited (0)` no Docker Desktop, o que é o esperado.
 ![Containers no Docker Desktop](imgs/docker_desktop.png)
+
+## Resultado 
+
+Tabela `dengue_weekly` consultada no DBeaver:
+
+![Tabela dengue_weekly no DBeaver](imgs/db_dengue.png)
