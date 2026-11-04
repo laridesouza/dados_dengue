@@ -14,7 +14,7 @@ API pública do [InfoDengue](https://info.dengue.mat.br/), sistema de alerta de 
 - **Período:** semanas 1 a 52 de 2025 (156 linhas no total)
 
 ## Como funciona
-
+![Pipeline](imgs/dengue_pipeline.png)
 ```mermaid
 flowchart LR
     API[(API InfoDengue)] --> E[extractor]
@@ -42,10 +42,10 @@ A tabela tem chave primária composta por **cidade + semana epidemiológica**, e
 | **Arquivo `.env`** | Credenciais | Mantém usuário e senha do banco fora do código e do GitHub. |
  
 O Compose garante a ordem: o processor só começa quando o MySQL está saudável (`healthcheck`) e o extractor terminou com sucesso. O extractor e o processor rodam uma vez e terminam, e por isso aparecem como `Exited (0)` no Docker Desktop, o que é o esperado.
-![Containers no Docker Desktop](imgs/docker_desktop.png)
+![Containers no Docker Desktop](imgs/docker_dengue.png)
 
 ## Resultado 
 
 Tabela `dengue_weekly` consultada no DBeaver:
 
-![Tabela dengue_weekly no DBeaver](imgs/db_dengue.png)
+![Tabela dengue_weekly no DBeaver](imgs/dengue_db.png)
