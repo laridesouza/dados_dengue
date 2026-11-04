@@ -18,14 +18,6 @@ API pública do [InfoDengue](https://info.dengue.mat.br/), sistema de alerta de 
   <img src="imgs/dengue_pipeline.png" alt="Pipeline" width="500">
 </p>
 
-```mermaid
-flowchart LR
-    API[(API InfoDengue)] --> E[extractor]
-    E -->|JSON original| V[(volume: data)]
-    V --> P[processor]
-    P -->|carga sem duplicar| M[(MySQL)]
-```
-
 1. **Extractor:** consulta a API para cada cidade e salva a resposta, sem alterar nada, em um arquivo JSON. Guardar o dado original permite refazer a transformação depois sem chamar a API de novo.
 2. **Processor:** lê os JSONs, escolhe os campos de interesse, converte os tipos (por exemplo, datas e números que vêm como texto) e transforma tudo em linhas de tabela.
 3. **MySQL:** armazena a tabela `dengue_weekly`, com uma linha por cidade e por semana. Os dados ficam em um volume Docker e não se perdem quando o container é desligado.
