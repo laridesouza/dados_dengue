@@ -14,7 +14,8 @@ API pública do [InfoDengue](https://info.dengue.mat.br/), sistema de alerta de 
 - **Período:** semanas 1 a 52 de 2025 (156 linhas no total)
 
 ## Como funciona
-![Pipeline](imgs/dengue_pipeline.png)
+<img src="imgs/dengue_pipeline.png" alt="Pipeline" width="500">
+
 ```mermaid
 flowchart LR
     API[(API InfoDengue)] --> E[extractor]
